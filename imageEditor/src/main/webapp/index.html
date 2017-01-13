@@ -1,0 +1,109 @@
+
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>DEMU Editor</title>
+        <style>
+        #div1, #div2 {
+    float: left;
+    width: 300px;
+    height: 300px;
+    margin: px;
+    padding: 10px;
+    border: 1px solid black;
+    float:left;
+    mar
+}
+        </style>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <button onclick="grayscale()">Black and White</button><br>
+        <button onclick="blure()">Blur</button><br>
+         <button onclick="brightness()">Brightness</button><br>
+          <button onclick="contrasting()">Contrast</button><br>
+           <button onclick="dropshadow()">Drop Shadow</button><br>
+            <button onclick="huerotate()">Hue-Rotate</button><br>
+            <button onclick="saturate()">Saturate</button><br>
+
+<div><img id="myImg" src="images/smartboy2.jpg" alt="Pineapple" width="500" height="500"></div>
+<h1>photo collage design</h1>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+  <img src="images/smartboy2.jpg" draggable="true" ondragstart="drag(event)" id="drag1"  width="300"  height="300">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+
+<script>
+function grayscale() {
+    // Standard syntax
+    document.getElementById("myImg").style.filter = "grayscale(100%)";
+
+    // Safari 6.0 - 9.0
+    document.getElementById("myImg").style.WebkitFilter = "grayscale(100%)";  
+}
+function blure() {
+    // Standard syntax
+    document.getElementById("myImg").style.filter = " blur(5px)";
+
+    // Safari 6.0 - 9.0
+    document.getElementById("myImg").style.WebkitFilter = " blur(5px)";  
+}
+function brightness() {
+    // Standard syntax
+    document.getElementById("myImg").style.filter = " brightness(200%)";
+
+    // Safari 6.0 - 9.0
+    document.getElementById("myImg").style.WebkitFilter = " brightness(200%)";  
+}
+function contrasting() {
+    // Standard syntax
+    document.getElementById("myImg").style.filter = "  contrast(200%)";
+
+    // Safari 6.0 - 9.0
+    document.getElementById("myImg").style.WebkitFilter = "  contrast(200%)";  
+}
+function dropshadow() {
+    // Standard syntax
+    document.getElementById("myImg").style.filter = " drop-shadow(8px 8px 10px black";
+
+    // Safari 6.0 - 9.0
+    document.getElementById("myImg").style.WebkitFilter = " drop-shadow(8px 8px 10px black)";  
+}
+function huerotate() {
+    // Standard syntax
+    document.getElementById("myImg").style.filter = " hue-rotate(90deg)";
+
+    // Safari 6.0 - 9.0
+    document.getElementById("myImg").style.WebkitFilter = " hue-rotate(90deg)";  
+}
+function saturate() {
+    // Standard syntax
+    document.getElementById("myImg").style.filter = " saturate(800%)";
+
+    // Safari 6.0 - 9.0
+    document.getElementById("myImg").style.WebkitFilter = " saturate(800%)";  
+}
+
+
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+    </body>
+</html>
